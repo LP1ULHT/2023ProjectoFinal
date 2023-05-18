@@ -1,9 +1,13 @@
 # Projecto Final 2023
 
 Neste exercício vamos desenvolver um simulador de um estaleiro de embarcações de carga. 
-Este estaleiro podem atracar até 50 embarcações. Os lugares para atracagem estão identificados de 0 a 49. Cada embarcação é inequivocamente identificada por uma matrícula composta por 4 letras e 2 números. 
+Neste estaleiro podem atracar até 50 embarcações. Os lugares para atracagem estão identificados de 0 a 49. Cada embarcação é inequivocamente identificada por uma matrícula composta por 4 letras e 2 números. 
 Cada embarcação pode conter até 10 pilhas de contentores, identificadas pelos números de 0 a 9. E cada contentor é identificado por um código único composto por 2 letras e 1 número.
 Existem duas gruas identificadas pelas letras A e B, que servem para mover contentores entre pilhas. As gruas têm comportamentos ligeiramente diferentes, contudo ambas transportam contentores que estão numa determinada pilha de uma embarcação para outra pilha que poderá estar na mesma embarcação ou noutra. A título de exemplo suponha que a embarcação `LENA-01` está atracada no ponto de atracagem 10. Esta embarcação tem 3 pilhas de contentores. A pilha 0 tem os contentores AA0 BB0 CC0, a pilha 1 tem os contores DD0 EE0 e a pilha 2 tem os contentores FF0.
+
+![Lena01](./lena01.png)
+
+
 ```
   CC0
   BB0   EE0
