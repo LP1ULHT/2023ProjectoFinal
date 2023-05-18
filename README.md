@@ -124,6 +124,11 @@ move B E LENA-01:7 E ALBA-03:1 3
 Grua B move 7 contentores da pilha 7 do ponto da embarcação LENA-01 para a pilha 1 da embarcação ALBA-03.
 
 
+Para executar o comando `move`, o programa começa por validar os inputs. Caso algum dos argumentos do comando não seja válido, o programa deve apresentar a mensagem: `ERROR: invalid command` e voltar a apresentar o menu principal.
+
+Se todos os argumentos forem válidos, o comando deve ser executado, e os contentores devem ser movimentados de acordo com as regras de cada uma das gruas. Após a operação concluida deve ser apresentada a mensagem: `SUCCESS: operation concluded`.
+
+
 
 
 
