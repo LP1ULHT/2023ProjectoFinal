@@ -132,18 +132,22 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 Em seguida detalha-se o funcionamento de cada comando.
 
 ## Comando `move`
-Este comando é dirigido à grua (A ou B), onde é indicado o ponto de atracagem de origem ou a embarcação de origem, o ponto de atracagem de destino ou a embarcação de destino e o número de contentores. Considere os seguintes exemplos:
+Este comando é dirigido à grua (A ou B), onde é indicado o ponto de atracagem de origem ou a embarcação de origem, o ponto de atracagem de destino ou a embarcação de destino e o número de contentores. 
+
+Por exemplo, se quisermos que a grua A mova 2 contentores da pilha 0 do ponto de atracagem 1 para a pilha 1 do mesmo ponto de atracagem, podemos usar o seguinte comando:
 ```
 move -g A -d 1 -p 0 -D 1 -P 1 -n 2
 ```
-Grua A move 2 contentores da pilha 0 do ponto de atracagem 1 para a pilha 1 do mesmo ponto de atracagem.
+ou o comando:
+```
+move -d 1  -D 1 -P 1  -n 2 -p 0 -g A 
+```
+
+Se quisermos que a grua B mova 5 contentores da pilha 5 do ponto de atracagem 2 para a pilha 2 do ponto de atracagem 3 podemos usar o seguinte comando:
 ```
 move -g B -P 2 -n 5 -p 5 -g B -d 2  -D 3  
 ```
-Grua B move 5 contentores da pilha 5 do ponto de atracagem 2 para a pilha 2 do ponto de atracagem 3.
-
-Como se pode verificar no exemplo anterior, a ordem pela qual surgem os argumentos no comando é indiferente.
-
+Como se pode verificar no exemplo anterior, a ordem pela qual surgem os argumentos no comando é indiferente, no entanto todos os argumentos são obrigatórios.
 
 Para executar o comando `move`, o programa começa por validar os inputs. Caso algum dos argumentos do comando não seja válido, o programa deve apresentar a mensagem: `ERROR: invalid command` e voltar a apresentar o menu principal.
 
