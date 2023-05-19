@@ -159,7 +159,38 @@ Caso seja pedido para mover um número maior de contentores do que o número de 
 
 
 ## Comando `show`
-Este comando indica o numero contentores presentes em todas pilhas numa determinado ponto de atracagem verificando nome de embarcação????
+Este comando indica o numero contentores presentes em todas pilhas numa embarcação. O comando pode ser introduzido sem argumentos, especificando o ponto de atracagem, ou especificando o identificador da embarcação. O output apresentado deverá respeitar o seguinte formato:
+```
+<ponto> <embarcacao>
+	<0> <contentor>:<peso> <contentor>:<peso> ...
+	<1> <contentor>:<peso> <contentor>:<peso> ...
+	<2> <contentor>:<peso> <contentor>:<peso> ...
+	...
+```
+Por exemplo, o comando
+```
+show -d 5
+```
+apresenta a informação sobre a embarcação que está no ponto de atracagem 4. O output deverá ser:
+```
+5 LENA
+	0 AA0:750 BB0 CC0
+	1 DD0 EE0
+	2 FF0
+```
+
+O comando:
+```
+show -e LENA
+```
+irá produzir o mesmo resultado do comando anterior.
+
+O comando
+```
+show
+```
+apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 10 (inclusive).
+
 
 ## Comando `where`
 
