@@ -93,7 +93,6 @@ O simulador começa por ler de um ficheiro a configuração do porto. O ficheiro
 ...
 ```
 O ficheiro contém apenas informação relativa a pontos de atracagem que estão ocupados por embarcações, assim como contém apenas informação sobre as pilhas que têm contentores. Pontos de embarcação que não estejam no ficheiro estão, por defeito livres. Assim como, pilhas que não têm contentores são consideradas vazias. 
-As pilhas em terra estão inicialmente vazias.
 
 Exemplo:
 ```
