@@ -155,6 +155,25 @@ Caso o ponto de origem, ou ponto de destino não contenham embarcações ou não
 Caso seja pedido para mover um número maior de contentores do que o número de contentores existentes na pilha, o comando é válido. Nesse caso são movidos todos os contentores dessa pilha, ficando sem contentores.
 
 
+## Comando `show`
+Este comando indica o numero contentores presentes em todas pilhas numa determinado ponto de atracagem verificando nome de embarcação????
+
+## Comando `where`
+
+
+## Comando `navigate`
+
+
+## Comando `help`
+
+
+## Comando `quit`
+Termina a execução do simulador.
+
+
+
+
+
 ## Honestidade Académica
 
 Nesta disciplina, espera-se que cada aluno siga os mais altos padrões de honestidade académica. Trabalhos que sejam identificados como cópias serão anulados e os alunos envolvidos terão nota zero - quer tenham copiado, quer tenham deixado copiar.
