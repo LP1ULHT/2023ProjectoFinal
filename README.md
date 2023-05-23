@@ -120,12 +120,12 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 
 ```
 +---- MENU
-| move -g <grua> -d <ponto> -p <pilha> -D <ponto> -P <pilha> -n <numero de contentores>
-| show -d <ponto> -e <embarcacao>
-| where <embarcacao>
-| navigate -e <embarcacao> -d <ponto_destino>
-| load -e <embarcacao> -p <pilha> -c <contentor:peso>
-| weight <embarcacao>
+| move -g <grua> -d <ponto> -p <pilha> -D <ponto> -P <pilha> -n <número de contentores>
+| show -d <ponto> -e <embarcação>
+| where <embarcação>
+| navigate -e <embarcação> -d <ponto_destino>
+| load -e <embarcação> -p <pilha> -c <contentor:peso>
+| weight <embarcação>
 | help
 | save <filename>
 | quit
@@ -161,9 +161,9 @@ Caso seja pedido para mover um número maior de contentores do que o número de 
 
 
 ## Comando `show`
-Este comando indica o numero contentores presentes em todas pilhas numa embarcação. O comando pode ser introduzido sem argumentos, especificando o ponto de atracagem, ou especificando o identificador da embarcação. O output apresentado deverá respeitar o seguinte formato:
+Este comando indica o número contentores presentes em todas pilhas numa embarcação. O comando pode ser introduzido sem argumentos, especificando o ponto de atracagem, ou especificando o identificador da embarcação. O output apresentado deverá respeitar o seguinte formato:
 ```
-<ponto> <embarcacao>
+<ponto> <embarcação>
 	<0> <contentor>:<peso> <contentor>:<peso> ...
 	<1> <contentor>:<peso> <contentor>:<peso> ...
 	<2> <contentor>:<peso> <contentor>:<peso> ...
@@ -173,12 +173,12 @@ Por exemplo, o comando
 ```
 show -d 5
 ```
-apresenta a informação sobre a embarcação que está no ponto de atracagem 4. O output deverá ser:
+apresenta a informação sobre a embarcação que está no ponto de atracagem 5. O output deverá ser:
 ```
 5 LENA
-	0 AA0:750 BB0 CC0
-	1 DD0 EE0
-	2 FF0
+	0 AA0:750 BB0:500 CC0:1000
+	1 DD0:2222 EE0:500
+	2 FF0:555
 ```
 
 O comando:
@@ -191,14 +191,24 @@ O comando
 ```
 show
 ```
-apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 10 (inclusive).
+apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 10 (inclusive). Em baixo segue exemplo chamando só o show, onde no porto só existem as embarcações LENA e TOOR.
 
+```
+5 LENA
+	0 AA0:750 BB0:500 CC0:1000
+	1 DD0:2222 EE0:500
+	2 FF0:555
+6 TOOR
+	1 AA0:1000 
+	2 BB0:10000 CC0:800
+
+```
 
 ## Comando `where`
 
-Este comando recebe o indentificador de uma embarcação e apresenta o número do ponto de atracagem. Por exemplo o comando:
+Este comando recebe o identificador de uma embarcação e apresenta o número do ponto de atracagem seguido do indentificador da embarcação. Por exemplo o comando:
 ```
-were LENA
+where LENA
 ```
 irá produzir o seguinte resultado:
 ```
@@ -213,20 +223,31 @@ ERROR: invalid command
 ## Comando `navigate`
 
 
-O comando navigate permite mudar uma embarcação de um ponto para outro. Para esse fim é necessário fornecer o id da embarcação e o ponto de destino. Em caso de sucesso o programa deverá apresentar a mensagem: `SUCCESS: operation concluded`, em caso de falha (por exemplo, se o ponto de destino estiver ocupado com outra embarcação), deverá apresentar a mensagem `ERROR: invalid command`.
+O comando navigate permite mudar uma embarcação de um ponto de atracagem para outro. Para esse fim é necessário fornecer o id da embarcação e o ponto de atracagem destino. 
 
-Caso o identificador da embarcação não exista no porto significa que se trata de uma embarcação nova que acaba de chegar. Nesse caso, deverá ser criada uma embarcação nova, sem contentores, e deverá ser colocada no ponto de atracagem indicado. Exemplo:
+Em caso de sucesso o programa deverá apresentar a mensagem: `SUCCESS: operation concluded`, em caso de falha (por exemplo, se o ponto de destino estiver ocupado com outra embarcação), deverá apresentar a mensagem `ERROR: invalid command`.
+
+Caso o identificador da embarcação não exista no porto de significa que se trata de uma embarcação nova que acaba de chegar. Nesse caso, deverá ser criada uma embarcação nova, sem contentores, e deverá ser colocada no ponto de atracagem indicado. Exemplo:
+
 ```
 navigate -e TOOR -d 8 
 ```
-irá criar uma nova embarcação com o identificador `TOOR`, no ponto de atracagem 8.
+
+Se TOOR não existe no porto, irá criar uma nova embarcação com o identificador `TOOR`, no ponto de atracagem 8.
+
+Se TOOR existisse no porto de atracagem X, iria mudar TOOR do porto de atracagem X para o porto de atracagem 8.
 
 ## Comado `load`
 
-Este comando serve para criar um contentor novo numa embarcação. É sobretudo utilizado quando entra uma embarcação nova no porto e se pretende colocar no sistema a informação sobre os seus contentores. Contudo, este comando permite criar apenas um contentor de cada vez. O contentor será sempre colocado no topo da pilha. Por exemplo:
+Este comando serve para criar um contentor novo numa embarcação. . Contudo, este comando permite criar apenas um contentor de cada vez. O contentor será sempre colocado no topo da pilha. 
+
+Por exemplo, se quisermos criar na embarcação TOOR um contentor na pilha 1 nomeado FF3 com peso de 750kg, seria dado o seguinte comando:
 ```
 load -e TOOR -p 1 -c FF3:750
 ```
+
+
+
 Em caso de sucesso o programa deverá apresentar a mensagem: `SUCCESS: operation concluded`, em caso de falha (por exemplo, se a informação do contentor não estiver correcta, ou caso já exista um contentor com o mesmo identificador), deverá apresentar a mensagem `ERROR: invalid command`.
 
 
@@ -236,7 +257,7 @@ Este comando apresenta o peso total de uma embarcação. Por exemplo, o comando:
 ```
 weight LENA
 ```
-produz a seguinte mensagem:
+produz a seguinte mensagem se a embarcação conter um total de contentores perfazendo 6650kg:
 ```
 LENA 6650
 ```
@@ -249,15 +270,21 @@ Em caso de falha (por exemplo, se a embarcação não for encontrada), deverá a
 Com este comando o menu deverá ser apresentado no terminal.
 
 
+## Comando `save`
 
+Com este comando o utilizador guarda num ficheiro a configuração atualizada do porto.
+Ficheiro deve cumprir o formato definido na secção "Leitura do ficheiro de configuração". De modo a numa nova execução do programa seja possivel ler como um ficheiro novo de configuração.
+
+No exemplo seguinte guarda a informacao de configuracao no ficheiro config.txt:
+```
+save config.txt
+```
 
 
 
 ## Comando `quit`
 
 Termina a execução do simulador.
-
-
 
 
 
