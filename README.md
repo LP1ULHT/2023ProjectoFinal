@@ -25,7 +25,7 @@ Neste exercício vamos desenvolver um simulador de um estaleiro de embarcações
 - Cada embarcação pode conter até 6 pilhas de contentores, identificadas pelos números de 0 a 5. 
 - Cada contentor é identificado por um código único composto por 2 letras e 1 número (exemplo BB7).
 
-- Cada contentor tem também associado um peso, em kg.
+- Cada contentor tem também associado um peso, em kg. O peso dos contentores tem de ser sempre igual ou superior a 500kg.
 
 - Existe um ponto de atracagem adicional (identificado pelo número 10), onde está atracada uma embarcação virtual com matrícula TERR. Este ponto serve para colocar contentores em terra e por essa razão, a embarcação não pode sair do lugar onde se encontra. 
 
@@ -124,6 +124,8 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 | show -d <ponto> -e <embarcacao>
 | where <embarcacao>
 | navigate -e <embarcacao> -d <ponto_destino>
+| load -e <embarcacao> -p <pilha> -c <contentor:peso>
+| weight <embarcacao>
 | help
 | save <filename>
 | quit
@@ -194,14 +196,65 @@ apresenta a informação sobre todos os pontos de atracagem que estão ocupados 
 
 ## Comando `where`
 
+Este comando recebe o indentificador de uma embarcação e apresenta o número do ponto de atracagem. Por exemplo o comando:
+```
+were LENA
+```
+irá produzir o seguinte resultado:
+```
+5 LENA
+```
+
+Caso o id da embarcação fornecido não exista, a seguinte mensagem deverá ser apresentada:
+```
+ERROR: invalid command
+```
 
 ## Comando `navigate`
 
 
+O comando navigate permite mudar uma embarcação de um ponto para outro. Para esse fim é necessário fornecer o id da embarcação e o ponto de destino. Em caso de sucesso o programa deverá apresentar a mensagem: `SUCCESS: operation concluded`, em caso de falha (por exemplo, se o ponto de destino estiver ocupado com outra embarcação), deverá apresentar a mensagem `ERROR: invalid command`.
+
+Caso o identificador da embarcação não exista no porto significa que se trata de uma embarcação nova que acaba de chegar. Nesse caso, deverá ser criada uma embarcação nova, sem contentores, e deverá ser colocada no ponto de atracagem indicado. Exemplo:
+```
+navigate -e TOOR -d 8 
+```
+irá criar uma nova embarcação com o identificador `TOOR`, no ponto de atracagem 8.
+
+## Comado `load`
+
+Este comando serve para criar um contentor novo numa embarcação. É sobretudo utilizado quando entra uma embarcação nova no porto e se pretende colocar no sistema a informação sobre os seus contentores. Contudo, este comando permite criar apenas um contentor de cada vez. O contentor será sempre colocado no topo da pilha. Por exemplo:
+```
+load -e TOOR -p 1 -c FF3:750
+```
+Em caso de sucesso o programa deverá apresentar a mensagem: `SUCCESS: operation concluded`, em caso de falha (por exemplo, se a informação do contentor não estiver correcta, ou caso já exista um contentor com o mesmo identificador), deverá apresentar a mensagem `ERROR: invalid command`.
+
+
+## Comando `weight`
+
+Este comando apresenta o peso total de uma embarcação. Por exemplo, o comando:
+```
+weight LENA
+```
+produz a seguinte mensagem:
+```
+LENA 6650
+```
+Em caso de falha (por exemplo, se a embarcação não for encontrada), deverá apresentar a mensagem `ERROR: invalid command`.
+
+
+
 ## Comando `help`
+
+Com este comando o menu deverá ser apresentado no terminal.
+
+
+
+
 
 
 ## Comando `quit`
+
 Termina a execução do simulador.
 
 
