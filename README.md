@@ -10,9 +10,10 @@
 >- O código deve compilar sem erros ou *warnings* utilizando o *gcc* com as seguintes flags:
 >- `-g -Wvla -Wall -Wpedantic -Wextra -Wdeclaration-after-statement`
 >- Tenha em atenção os nomes dados das variáveis, para que sejam indicadores daquilo que as mesmas vão conter.
+>- O programa não deve ter *memory leaks*.
 >- O trabalho deve ser desenvolvido e submetido de forma individual.
 
->Este exercício deverá ser submetido na plataforma Pandora até às 23h59 de dia ?? Junho e será contabilizado para a nota final da unidade curricular de acordo com os critérios disponibilizados na página da disciplina, concretamente nos slides da primeira aula.
+>Este exercício deverá ser submetido na plataforma Pandora até às 23h59 de dia 18 Junho e será contabilizado para a nota final da unidade curricular de acordo com os critérios disponibilizados na página da disciplina, concretamente nos slides da primeira aula.
 
 >Todos os trabalhos serão comparados utilizando um sistema de deteção de plágio.
 
