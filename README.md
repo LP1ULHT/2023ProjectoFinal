@@ -121,17 +121,23 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 
 ```
 +---- MENU
-| move -g <grua> -d <ponto> -p <pilha> -D <ponto> -P <pilha> -n <número de contentores>
-| show -d <ponto> -e <embarcação>
-| where <embarcação>
-| navigate -e <embarcação> -d <ponto_destino>
-| load -e <embarcação> -p <pilha> -c <contentor:peso>
-| weight <embarcação>
+move -g <grua> -d <ponto> -p <pilha> -D <ponto> -P <pilha> -n <numero_de_contentores>
+show -d <ponto> -e <embarc>
+| where <embarc>
+| navigate -e <embarc> -d <ponto_destino>
+| load -e <embarc> -p <pilha> -c <contentor:peso>
+| weight <embarc>
 | help
 | save <filename>
 | quit
 +----
 ```
+
+Sempre que o programa estiver à espera de um input vindo do utilizador, deve apresentar o indicador no terminal:
+```
+>
+```
+
 Em seguida detalha-se o funcionamento de cada comando.
 
 ## Comando `move`
