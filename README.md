@@ -309,8 +309,104 @@ A avaliação do pandora não irá avaliar todas as opções em todos os testes,
 
 ## Exemplos
 
+```bash
+% ./portmanager
++---- MENU
+| move          [-g grua] [-d ponto] [-p pilha] [-D ponto] [-P pilha] [-n numero_de_contentores]
+| show          [-d ponto] [-e embarc]
+| where         [embarc]
+| navigate      [-e embarc] [-d ponto]
+| load          [-e embarc] [-p pilha] [-c contentor:peso]
+| weight        [embarc]
+| save          [filename]
+| help 
+| quit 
++----
+>navigate -e LENA -d 1
+SUCCESS: operation concluded
+>navigate -e XPTO -d 0
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA0:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA0:500
+ERROR: invalid command
+>show LENA
+ERROR: invalid command
+>show -e LENA
+1 LENA
+        0 AA0:500 
 
+>load -e LENA -p 0 -c AA1:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA2:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA3:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA4:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA1:500
+ERROR: invalid command
+>load -e LENA -p 0 -c AA6:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA7:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA8:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AA9:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB0:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB1:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB2:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB3:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB4:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB1:500
+ERROR: invalid command
+>load -e LENA -p 0 -c AB6:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB7:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB8:500
+SUCCESS: operation concluded
+>load -e LENA -p 0 -c AB9:500
+SUCCESS: operation concluded
+>show -e LENA
+1 LENA
+        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 AB4:500 AB6:500 AB7:500 AB8:500 AB9:500 
 
+>weight LENA
+LENA 9000
+>where LENA
+1 LENA
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+SUCCESS: operation concluded
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+SUCCESS: operation concluded
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+SUCCESS: operation concluded
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+SUCCESS: operation concluded
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+SUCCESS: operation concluded
+>show -e LENA
+1 LENA
+        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 
+        1 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
+
+>move -g B -d 1 -p 0 -D 1 -P 2 -n 6
+SUCCESS: operation concluded
+>show -e LENA
+1 LENA
+        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 
+        1 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
+        2 AB0:500 AB1:500 AB2:500 AB3:500 AA8:500 AA9:500 
+
+>
+```
 
 # Honestidade Académica
 
