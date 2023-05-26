@@ -121,13 +121,13 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 
 ```
 +---- MENU
-| move [-g grua] [-d ponto] [-p pilha] [-D ponto] [-P pilha] [-n numero_de_contentores]
-| show [-d ponto] [-e embarc]
-| where [embarc]
-| navigate [-e embarc] [-d ponto]
-| load [-e embarc] [-p pilha] [-c contentor:peso]
-| weight [embarc]
-| save [filename]
+| move		[-g grua] [-d ponto] [-p pilha] [-D ponto] [-P pilha] [-n numero_de_contentores]
+| show		[-d ponto] [-e embarc]
+| where		[embarc]
+| navigate	[-e embarc] [-d ponto]
+| load		[-e embarc] [-p pilha] [-c contentor:peso]
+| weight	[embarc]
+| save		[filename]
 | help
 | quit
 +----
