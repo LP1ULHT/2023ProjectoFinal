@@ -72,7 +72,7 @@ Por outro lado se o mesmo comando for dado à grua B, a pilha 2 ficaria com os c
 A grua B move sempre o máximo de contentores possível de cada vez. Caso haja uma ordem para mover um número superior a 4, a grua terá de fazer mais do que um movimento.
 
 ## Execução do programa
-O programa deverá aceitar um parâmetro na linha de comandos que indica o nome do ficheiro de configuração que deverá ser lido pelo simulador. Por exemplo:
+O programa pode aceitar um parâmetro (obcional) na linha de comandos que indica o nome do ficheiro de configuração que deverá ser lido pelo simulador. Por exemplo:
 ```
 ./porto ficheiro_porto_lisboa.txt
 ```
@@ -83,6 +83,8 @@ Caso o ficheiro não respeite o formato esperado, o programa deve terminar após
 ```ERROR: file format is not recognized```
 
 Após a leitura do ficheiro de configuração, o simulador deve apresentar um menu (ver secção Menu Principal) e começar a aceitar comandos do utilizador.
+
+Caso o ficheiro não seja passado pelo utilizador, o programa deve arrancar normalmente sem embarcações e todos os pontos de atracagem vazios.
 
 ## Leitura do ficheiro de configuração
 
@@ -293,7 +295,18 @@ save config.txt
 
 Termina a execução do simulador.
 
+## Implementação
 
+- Comece por definir as estruturas para as embarcacoes, pontos de atracagem e contentores. 
+- Escreva funções atómicas para validar os identificadores das embarcações, pontos de atracagem e contentores.
+- Desenvolva a opção `quit`.
+- Desenvolva a opção `navigate`.
+- Desenvolva a opção `where`.
+- Desenvolva a opcao `load`.
+- Desenvolva a opcao `show`.
+- Desenvolva o resto das opções.
+
+A avaliação do pandora não irá avaliar todas as opções em todos os testes, ou seja, se apenas implementar algumas opções, certamente já terá uma parte da nota. Tenha em consideração que as opções `quit`, `navigate`, `where`, `load`, `show` são obrigatórias. Sempre que desenvolver uma opção nova, submeta o projecto no Pandora.
 
 ## Honestidade Académica
 
