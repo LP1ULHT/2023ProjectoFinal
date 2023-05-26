@@ -121,14 +121,14 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 
 ```
 +---- MENU
-move -g <grua> -d <ponto> -p <pilha> -D <ponto> -P <pilha> -n <numero_de_contentores>
-show -d <ponto> -e <embarc>
-| where <embarc>
-| navigate -e <embarc> -d <ponto_destino>
-| load -e <embarc> -p <pilha> -c <contentor:peso>
-| weight <embarc>
+| move [-g grua] [-d ponto] [-p pilha] [-D ponto] [-P pilha] [-n numero_de_contentores]
+| show [-d ponto] [-e embarc]
+| where [embarc]
+| navigate [-e embarc] [-d ponto]
+| load [-e embarc] [-p pilha] [-c contentor:peso]
+| weight [embarc]
 | help
-| save <filename>
+| save [filename]
 | quit
 +----
 ```
@@ -306,7 +306,13 @@ Termina a execução do simulador.
 
 A avaliação do pandora não irá avaliar todas as opções em todos os testes, ou seja, se apenas implementar algumas opções, certamente já terá uma parte da nota. Tenha em consideração que as opções `quit`, `navigate`, `where`, `load`, `show` são obrigatórias. Sempre que desenvolver uma opção nova, submeta o projecto no Pandora.
 
-## Honestidade Académica
+
+## Exemplos
+
+
+
+
+# Honestidade Académica
 
 Nesta disciplina, espera-se que cada aluno siga os mais altos padrões de honestidade académica. Trabalhos que sejam identificados como cópias serão anulados e os alunos envolvidos terão nota zero - quer tenham copiado, quer tenham deixado copiar.
 Para evitar situações deste género, recomendamos aos alunos que nunca partilhem ou mostrem o seu código.
