@@ -28,8 +28,6 @@ Neste exercício vamos desenvolver um simulador de um estaleiro de embarcações
 
 - Cada contentor tem também associado um peso, em kg. O peso dos contentores tem de ser sempre igual ou superior a 500kg.
 
-- Existe um ponto de atracagem adicional (identificado pelo número 10), onde está atracada uma embarcação virtual com matrícula TERR. Este ponto serve para colocar contentores em terra e por essa razão, a embarcação não pode sair do lugar onde se encontra. 
-
 - Existem duas gruas identificadas pelas letras A e B, que servem para mover contentores entre pilhas. As gruas têm comportamentos ligeiramente diferentes, contudo ambas transportam contentores que estão numa determinada pilha de uma embarcação para outra pilha que poderá estar na mesma embarcação, noutra embarcação, ou em terra. 
 
 - Não há limite para o número de contentores que uma pilha pode suportar.
@@ -295,7 +293,7 @@ save config.txt
 
 Termina a execução do simulador.
 
-## Implementação
+## Conselhos de Implementação
 
 - Comece por definir as estruturas para as embarcacoes, pontos de atracagem e contentores. 
 - Escreva funções atómicas para validar os identificadores das embarcações, pontos de atracagem e contentores.
