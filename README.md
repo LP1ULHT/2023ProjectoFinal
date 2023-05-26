@@ -127,8 +127,8 @@ Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo
 | navigate [-e embarc] [-d ponto]
 | load [-e embarc] [-p pilha] [-c contentor:peso]
 | weight [embarc]
-| help
 | save [filename]
+| help
 | quit
 +----
 ```
