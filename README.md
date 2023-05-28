@@ -88,30 +88,34 @@ Caso o ficheiro não seja passado pelo utilizador, o programa deve arrancar norm
 
 O simulador começa por ler de um ficheiro a configuração do porto. O ficheiro organiza-se da seguinte forma:
 ```
-<ponto de atracagem> <matricula>
-	0 <contentor 0 da pilha 0:peso> <contentor 1 pilha 0:peso> <contentor 2 pilha 2:peso>...
-	1 <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
+d<ponto de atracagem> <matricula>
+	p0 <numero de contentores da pilha 0> <contentor 0 da pilha 0:peso> <contentor 1 pilha 0:peso> <contentor 2 pilha 2:peso>...
+	p1 <numero de contentores da pilha 1> <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
+	p2 <numero de contentores da pilha 2> <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
+	p3 <numero de contentores da pilha 3> <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
+	p4 <numero de contentores da pilha 4> <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
+	p5 <numero de contentores da pilha 5> <contentor 0 da pilha 1:peso> <contentor 1 pilha 1:peso> <contentor 2 pilha 1:peso>...
 ...
 ```
 O ficheiro contém apenas informação relativa a pontos de atracagem que estão ocupados por embarcações, assim como contém apenas informação sobre as pilhas que têm contentores. Pontos de embarcação que não estejam no ficheiro estão, por defeito livres. Assim como, pilhas que não têm contentores são consideradas vazias. 
 
 Exemplo:
 ```
-5 LENA
-	0 AA0:1000 BB0:2000 CC0:1500
-	1 DD0:800 EE0:600
-	2 FF0:750
+d5 LENA
+	p0 3 AA0:1000 BB0:2000 CC0:1500
+	p1 2 DD0:800 EE0:600
+	p2 1 FF0:750
 ```
 Neste exemplo a embarcação LENA encontra-se atracada no ponto 5 e contém as pilhas 0 1 e 2 ocupadas com contentores. As restantes pilhas desta embarcação estão vazias (livres) e poderão vir a ter contentores colocados por uma das gruas. Os restantes pontos de atracagem estão livres.
 
 Tanto os pontos de atracagem, como as pilhas, não necessitam de estar por ordem. No entanto, os contentores estão representados por ordem. No ficheiro da esquerda para a direita, representa os contentores que estão na pilha de baixo para cima. Um outro ficheiro válido que produziria o mesmo resultado do exemplo anterior seria:
 ```
-5 LENA
-	2 FF0:750
-	5
-	1 DD0:800 EE0:600
-	3
-	0 AA0:1000 BB0:2000 CC0:1500
+d5 LENA
+	p2 1 FF0:750
+	p5 0
+	p1 2 DD0:800 EE0:600
+	p3 0
+	p0 3 AA0:1000 BB0:2000 CC0:1500
 ```
 Neste caso, as pilhas não aparecem por ordem. Além disso há duas pilhas, 5 e 3 que estão explicitamente vazias. A pilha 4 também está vazia (implícitamente).
 
@@ -170,10 +174,10 @@ Caso seja pedido para mover um número maior de contentores do que o número de 
 ## Comando `show`
 Este comando indica o número contentores presentes em todas pilhas numa embarcação. O comando pode ser introduzido sem argumentos, especificando o ponto de atracagem, ou especificando o identificador da embarcação. O output apresentado deverá respeitar o seguinte formato:
 ```
-<ponto> <embarcação>
-	<0> <contentor>:<peso> <contentor>:<peso> ...
-	<1> <contentor>:<peso> <contentor>:<peso> ...
-	<2> <contentor>:<peso> <contentor>:<peso> ...
+d<ponto> <embarcação>
+	p<0> <numero de contentores da pilha 0> <contentor>:<peso> <contentor>:<peso> ...
+	p<1> <numero de contentores da pilha 1> <contentor>:<peso> <contentor>:<peso> ...
+	p<2> <numero de contentores da pilha 2> <contentor>:<peso> <contentor>:<peso> ...
 	...
 ```
 Por exemplo, o comando
@@ -182,10 +186,10 @@ show -d 5
 ```
 apresenta a informação sobre a embarcação que está no ponto de atracagem 5. O output deverá ser:
 ```
-5 LENA
-	0 AA0:750 BB0:500 CC0:1000
-	1 DD0:2222 EE0:500
-	2 FF0:555
+d5 LENA
+	p0 3 AA0:750 BB0:500 CC0:1000
+	p1 2 DD0:2222 EE0:500
+	p2 1 FF0:555
 ```
 
 O comando:
@@ -201,14 +205,13 @@ show
 apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 10 (inclusive). Em baixo segue exemplo chamando só o show, onde no porto só existem as embarcações LENA e TOOR.
 
 ```
-5 LENA
-	0 AA0:750 BB0:500 CC0:1000
-	1 DD0:2222 EE0:500
-	2 FF0:555
-6 TOOR
-	1 AA0:1000 
-	2 BB0:10000 CC0:800
-
+d5 LENA
+	p0 3 AA0:750 BB0:500 CC0:1000
+	p1 2 DD0:2222 EE0:500
+	p2 1 FF0:555
+d6 TOOR
+	p1 1 AA0:1000 
+	p2 2 BB0:10000 CC0:800
 ```
 
 ## Comando `where`
@@ -219,7 +222,7 @@ where LENA
 ```
 irá produzir o seguinte resultado:
 ```
-5 LENA
+d5 LENA
 ```
 
 Caso o id da embarcação fornecido não exista, a seguinte mensagem deverá ser apresentada:
@@ -333,8 +336,8 @@ ERROR: invalid command
 >show LENA
 ERROR: invalid command
 >show -e LENA
-1 LENA
-        0 AA0:500 
+d1 LENA
+        p0 1 AA0:500 
 
 >load -e LENA -p 0 -c AA1:500
 SUCCESS: operation concluded
@@ -375,13 +378,13 @@ SUCCESS: operation concluded
 >load -e LENA -p 0 -c AB9:500
 SUCCESS: operation concluded
 >show -e LENA
-1 LENA
-        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 AB4:500 AB6:500 AB7:500 AB8:500 AB9:500 
+d1 LENA
+        p0 18 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 AB4:500 AB6:500 AB7:500 AB8:500 AB9:500 
 
 >weight LENA
 LENA 9000
 >where LENA
-1 LENA
+d1 LENA
 >move -g A -d 1 -p 0 -D 1 -P 1 -n 1
 SUCCESS: operation concluded
 >move -g A -d 1 -p 0 -D 1 -P 1 -n 1
@@ -393,17 +396,17 @@ SUCCESS: operation concluded
 >move -g A -d 1 -p 0 -D 1 -P 1 -n 1
 SUCCESS: operation concluded
 >show -e LENA
-1 LENA
-        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 
-        1 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
+d1 LENA
+        p0 13 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 AA8:500 AA9:500 AB0:500 AB1:500 AB2:500 AB3:500 
+        p1 5 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
 
 >move -g B -d 1 -p 0 -D 1 -P 2 -n 6
 SUCCESS: operation concluded
 >show -e LENA
-1 LENA
-        0 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 
-        1 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
-        2 AB0:500 AB1:500 AB2:500 AB3:500 AA8:500 AA9:500 
+d1 LENA
+        p0 7 AA0:500 AA1:500 AA2:500 AA3:500 AA4:500 AA6:500 AA7:500 
+        p1 5 AB9:500 AB8:500 AB7:500 AB6:500 AB4:500 
+        p2 6 AB0:500 AB1:500 AB2:500 AB3:500 AA8:500 AA9:500 
 
 >
 ```
