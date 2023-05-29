@@ -119,7 +119,8 @@ d5 LENA
 ```
 Neste caso, as pilhas não aparecem por ordem. Além disso há duas pilhas, 5 e 3 que estão explicitamente vazias. A pilha 4 também está vazia (implícitamente).
 
-Considere também o ficheiro ![Lena01](./input1.txt) como exemplo.
+Considere também o ficheiro [configfile1](./input1.txt) como exemplo.
+
 
 ## Menu principal
 
