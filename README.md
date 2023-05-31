@@ -10,6 +10,7 @@
 >- O código deve compilar sem erros ou *warnings* utilizando o *gcc* com as seguintes flags:
 >- `-g -Wvla -Wall -Wpedantic -Wextra -Wdeclaration-after-statement`
 >- Tenha em atenção os nomes dados das variáveis, para que sejam indicadores daquilo que as mesmas vão conter.
+>- Não é permitida a utilização de variáveis globais ou estáticas
 >- O programa não deve ter *memory leaks*.
 >- O trabalho deve ser desenvolvido e submetido de forma individual.
 
