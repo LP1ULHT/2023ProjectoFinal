@@ -389,15 +389,7 @@ d1 LENA
 LENA 9000
 >where LENA
 d1 LENA
->move -g A -d 1 -p 0 -D 1 -P 1 -n 1
-SUCCESS: operation concluded
->move -g A -d 1 -p 0 -D 1 -P 1 -n 1
-SUCCESS: operation concluded
->move -g A -d 1 -p 0 -D 1 -P 1 -n 1
-SUCCESS: operation concluded
->move -g A -d 1 -p 0 -D 1 -P 1 -n 1
-SUCCESS: operation concluded
->move -g A -d 1 -p 0 -D 1 -P 1 -n 1
+>move -g A -d 1 -p 0 -D 1 -P 1 -n 5
 SUCCESS: operation concluded
 >show -e LENA
 d1 LENA
