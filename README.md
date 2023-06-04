@@ -226,7 +226,7 @@ where LENA
 ```
 irá produzir o seguinte resultado:
 ```
-d5 LENA
+5 LENA
 ```
 
 Caso o id da embarcação fornecido não exista, a seguinte mensagem deverá ser apresentada:
