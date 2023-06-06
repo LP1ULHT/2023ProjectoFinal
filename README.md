@@ -87,7 +87,7 @@ Caso o ficheiro não seja passado pelo utilizador, o programa deve arrancar norm
 
 ## Leitura do ficheiro de configuração
 
-O simulador começa por ler de um ficheiro a configuração do porto. O ficheiro organiza-se da seguinte forma:
+O simulador começa por verificar se o utilizador passou como parâmetro o nome de um ficheiro de input. Em caso afirmativo, o programa deverá ler de um ficheiro a configuração do porto. O ficheiro organiza-se da seguinte forma:
 ```
 d<ponto de atracagem> <matricula>
 	p0 <numero de contentores da pilha 0> <contentor 0 da pilha 0:peso> <contentor 1 pilha 0:peso> <contentor 2 pilha 2:peso>...
@@ -123,9 +123,10 @@ Neste caso, as pilhas não aparecem por ordem. Além disso há duas pilhas, 5 e 
 Considere também o ficheiro [configfile1](./input1.txt) como exemplo.
 
 
+
 ## Menu principal
 
-Após leitura do ficheiro, o programa deverá aceitar comandos introduzidos pelo utilizador, de acordo com o seguinte menu:
+O programa deverá aceitar comandos introduzidos pelo utilizador, de acordo com o seguinte menu:
 
 ```
 +---- MENU
@@ -293,7 +294,7 @@ No exemplo seguinte guarda a informacao de configuracao no ficheiro config.txt:
 ```
 save config.txt
 ```
-
+Em caso de sucesso deve apresentar a mensagem: `SUCCESS: operation concluded`
 
 
 ## Comando `quit`
