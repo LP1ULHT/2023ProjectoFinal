@@ -207,7 +207,7 @@ O comando
 ```
 show
 ```
-apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 10 (inclusive). Em baixo segue exemplo chamando só o show, onde no porto só existem as embarcações LENA e TOOR.
+apresenta a informação sobre todos os pontos de atracagem que estão ocupados começando no 0 e terminando no 9 (inclusive). Em baixo segue exemplo chamando só o show, onde no porto só existem as embarcações LENA e TOOR.
 
 ```
 d5 LENA
